@@ -51,6 +51,8 @@ public class CircleImageView extends ImageView {
     private int mBorderWidth = DEFAULT_BORDER_WIDTH;
     private int mFillColor = DEFAULT_FILL_COLOR;
 
+
+
     private Bitmap mBitmap;
     private BitmapShader mBitmapShader;
     private int mBitmapWidth;
