@@ -9,7 +9,10 @@
 
     <string name="login_info">请登录</string>
 
-
+    <string name="tab_home">训练</string>
+    <string name="tab_found">朋友</string>
+    <string name="tab_account">发现</string>
+    <string name="tab_mine">我的</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
