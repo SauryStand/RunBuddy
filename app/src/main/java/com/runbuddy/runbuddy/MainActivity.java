@@ -1,5 +1,6 @@
 package com.runbuddy.runbuddy;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -7,7 +8,9 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +25,7 @@ import android.widget.Toast;
 
 import com.runbuddy.runbuddy.Login.LoginActivity;
 import com.runbuddy.runbuddy.Login.ShareLogin.RegisterPage;
+import com.runbuddy.runbuddy.view.ChangeIconColor;
 import com.runbuddy.runbuddy.widgets.DetailActivity;
 import com.runbuddy.runbuddy.widgets.RecyclerViewAdapter;
 import com.runbuddy.runbuddy.widgets.ViewModel;
@@ -45,6 +49,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private View content;
     private RecyclerView recyclerView;
     private NavigationView navigationView;
+
+    private ViewPager mViewPager;
+    private List<Fragment> mFragmentList = new ArrayList<>();
+    private String[] title = {"Home","Found","Account","Mine"};
+    //private MyFragmentPagerAdapter mAdapter;
+    private List<ChangeIconColor> mTabIndicators = new ArrayList<ChangeIconColor>();
+
+    private ActionBar actionBar;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -238,6 +253,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+    private void initView(){
+        //mViewPager = (ViewPager)findViewById()
+    }
+
 
 
 }

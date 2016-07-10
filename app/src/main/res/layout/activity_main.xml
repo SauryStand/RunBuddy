@@ -17,12 +17,12 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
+
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/content"
@@ -62,62 +62,75 @@
     </android.support.design.widget.CoordinatorLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <com.runbuddy.runbuddy.view.ChangeIconColor
-            android:id="@+id/id_indicator_one"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:padding="5dp"
-            app:color="#303F9F"
-            app:icon="@mipmap/ic_menu_start_conversation"
-            app:text="@string/tab_home"
-            app:text_size="12sp" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/id_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.87">
+        </android.support.v4.view.ViewPager>
 
-        <com.runbuddy.runbuddy.view.ChangeIconColor
-            android:id="@+id/id_indicator_two"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:padding="5dp"
-            app:color="#303F9F"
-            app:icon="@mipmap/ic_menu_friendslist"
-            app:text="@string/tab_home"
-            app:text_size="12sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <com.runbuddy.runbuddy.view.ChangeIconColor
-            android:id="@+id/id_indicator_three"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            app:icon="@mipmap/ic_menu_emoticons"
-            android:padding="5dp"
-            app:color="#303F9F"
-            app:text="@string/tab_account"
-            app:text_size="12sp" />
+            <com.runbuddy.runbuddy.view.ChangeIconColor
+                android:id="@+id/id_indicator_one"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:color="#303F9F"
+                app:icon="@mipmap/ic_menu_start_conversation"
+                app:text="@string/tab_home"
+                app:text_size="12sp" />
 
-        <com.runbuddy.runbuddy.view.ChangeIconColor
-            android:id="@+id/id_indicator_four"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:padding="5dp"
-            app:color="#303F9F"
-            app:icon="@mipmap/ic_menu_allfriends"
-            app:text="@string/tab_mine"
-            app:text_size="12sp" />
+            <com.runbuddy.runbuddy.view.ChangeIconColor
+                android:id="@+id/id_indicator_two"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:color="#303F9F"
+                app:icon="@mipmap/ic_menu_friendslist"
+                app:text="@string/tab_home"
+                app:text_size="12sp" />
+
+            <com.runbuddy.runbuddy.view.ChangeIconColor
+                android:id="@+id/id_indicator_three"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:color="#303F9F"
+                app:icon="@mipmap/ic_menu_emoticons"
+                app:text="@string/tab_account"
+                app:text_size="12sp" />
+
+            <com.runbuddy.runbuddy.view.ChangeIconColor
+                android:id="@+id/id_indicator_four"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:padding="5dp"
+                app:color="#303F9F"
+                app:icon="@mipmap/ic_menu_allfriends"
+                app:text="@string/tab_mine"
+                app:text_size="12sp" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
 
 
     <android.support.design.widget.NavigationView
