@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lin="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_notify"
+        android:actionViewClass="android.widget.SearchView"
+        android:icon="@mipmap/bell"
+        lin:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/action_notify"/>
+
+
+</menu>
