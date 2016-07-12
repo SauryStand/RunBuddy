@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -38,8 +39,7 @@ import com.runbuddy.runbuddy.widgets.ViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        RecyclerViewAdapter.OnItemClickListener, View.OnClickListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RecyclerViewAdapter.OnItemClickListener {
 
     //public static final String AVATAR_URL = "http://lorempixel.com/200/200/people/1/";
 
@@ -71,14 +71,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         initRecyclerView();
         setupDrawerLayout();
-        //initFab();
-        initFragment();
-        initEvent();
-        initView();
+
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(3);
         //content = findViewById(R.id.content);
-
         //final ImageView avatar = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.avatar);
         //Picasso.with(this).load(AVATAR_URL).transform(new CircleTransform()).into(avatar);
 
@@ -258,109 +254,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-    }
-
-    private void initView() {
-        mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
-
-        ChangeIconColor one = (ChangeIconColor) findViewById(R.id.id_indicator_one);
-        mTabIndicators.add(one);
-        ChangeIconColor two = (ChangeIconColor) findViewById(R.id.id_indicator_two);
-        mTabIndicators.add(two);
-        ChangeIconColor three = (ChangeIconColor) findViewById(R.id.id_indicator_three);
-        mTabIndicators.add(three);
-        ChangeIconColor four = (ChangeIconColor) findViewById(R.id.id_indicator_four);
-        mTabIndicators.add(four);
-        one.setOnClickListener(this);
-        two.setOnClickListener(this);
-        three.setOnClickListener(this);
-        four.setOnClickListener(this);
-
-        one.setIconAlpha(1.0f);//默认第一个tab是纯色的绿色，其他均为透明
-    }
-
-    /*
-    * 重置其他的Tab indicator的颜色
-    */
-    private void resetOtherTabs() {
-        for (int i = 0; i < mTabIndicators.size(); i++) {
-            mTabIndicators.get(i).setIconAlpha(0);
-        }
-    }
-
-    /*
-    * 初始化所有事件
-    */
-    private void initEvent() {
-        mViewPager.addOnPageChangeListener(this); // 等于：mViewPager.setOnPageChangeListener(this);
-    }
-
-
-    @Override
-    public void onClick(View view) {
-
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        // Log.e("TAG", "position = " + position + " ,positionOffset =  "
-        // + positionOffset);
-
-        /*
-        * 从第一页到第二页：  position=0， positionOffset 0.0~1.0
-        * 从第二页到第一页：  position=0,  positionOffset 1.0~0.0
-        * */
-        if (positionOffset > 0) {
-            ChangeIconColor left = mTabIndicators.get(position);
-            ChangeIconColor right = mTabIndicators.get(position + 1);
-            left.setIconAlpha(1 - positionOffset);
-            right.setIconAlpha(positionOffset);
-        }
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        this.setTitle(title[position]);
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
-
-    /*
-    * 点击tab的icon时的变色控制
-    */
-    private void clickTab(View v) {
-        resetOtherTabs();
-
-        switch (v.getId()) {
-            case R.id.id_indicator_one:
-                mTabIndicators.get(0).setIconAlpha(1.0f);
-                mViewPager.setCurrentItem(0, false);
-                break;
-            case R.id.id_indicator_two:
-                mTabIndicators.get(1).setIconAlpha(1.0f);
-                mViewPager.setCurrentItem(1, false);
-                break;
-            case R.id.id_indicator_three:
-                mTabIndicators.get(2).setIconAlpha(1.0f);
-                mViewPager.setCurrentItem(2, false);
-                break;
-            case R.id.id_indicator_four:
-                mTabIndicators.get(3).setIconAlpha(1.0f);
-                mViewPager.setCurrentItem(3, false);
-                break;
-        }
-    }
-
-    private void initFragment() {
-        RunFragment mRunFragment = new RunFragment();
-        MineFragment mMineFragment = new MineFragment();
-        TrainingFragment mTrainingFragment = new TrainingFragment();
-        //mFragmentList.add(mRunFragment);
-        //mFragmentList.add(mMineFragment);
-        //mFragmentList.add(mTrainingFragment);
     }
 
 
